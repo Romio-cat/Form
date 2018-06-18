@@ -15,10 +15,6 @@
 	
 	<div class="wrapper">
 		<div class="form">
-
-			<!-- Табы для переключения между входом и регистрацией на js -->
-			<label class="tab active" title="Авторизация">Авторизация</label>
-			<label class="tab" title="Регистрация">Регистрация</label>
 			
 			<!-- Табы для переключения между входом и регистрацией на css -->
 			<!-- <input type="radio" id="tab-1" name="tabs" checked>
@@ -27,12 +23,16 @@
 			<input type="radio" id="tab-2" name="tabs">
 			<label class="tab" for="tab-2" title="Регистрация">Регистрация</label> -->
 
+			<!-- Табы для переключения между входом и регистрацией на js -->
+			<label class="tab active" title="Авторизация">Авторизация</label>
+			<label class="tab" title="Регистрация">Регистрация</label>
+			
 			<!-- форма для входа -->
-			<form class="tab-form">
-				<input type="email" placeholder="Введите E-mail">
-				<input type="password" placeholder="Введите пароль">
+			<form id="form-1" class="tab-form active">
+				<input class="input" type="email" placeholder="Введите E-mail">
+				<input class="input" type="password" placeholder="Введите пароль">
 				<a href="#" class="button">Войти</a>
-				<ul>
+				<ul class="social">
 					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
@@ -43,21 +43,19 @@
 			</form>
 
 			<!-- форма для регистрации, по умолчанию скрыта -->
-			<form class="tab-form hide">
-				<input type="email" placeholder="Введите E-mail адресс">
-				<input type="text" placeholder="Введите сове имя">
-				<input type="password" placeholder="Введите пароль">
+			<form id="form-2" class="tab-form">
+				<input class="input" type="email" placeholder="Введите E-mail адресс">
+				<input class="input" type="text" placeholder="Введите сове имя">
+				<input class="input" type="password" placeholder="Введите пароль">
 				<a href="#" class="button">Регистрация</a>
 				<div class="recover">
 					<input type="checkbox">
 					<label>Ознакомлен(а) и принимаю <a href="#">условия регистрации</a></label>
 				</div>
 			</form>
-
+			
 		</div>
 	</div>	
-
-
 
 </body>
 </html>

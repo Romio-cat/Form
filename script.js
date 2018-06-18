@@ -2,14 +2,12 @@ $(document).ready( function() {
 
 	// Табы
 	$('.wrapper').on('click', '.tab', function() {
-		// Добавление класса .active для label
-		$('.wrapper .tab').removeClass('active');
+		// Удаление класса .active
+		$('.wrapper').find('.active').removeClass('active');
+
+		// Добавляем класс .active
 		$(this).addClass('active');
-
-		// Отображение формы входа или регистрации
-		$('.wrapper .tab-form').removeClass('hide');
-		
-
+		$('.tab-form').eq( $(this).index() ).addClass('active');
 
 	})
 })

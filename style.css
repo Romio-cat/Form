@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+
+:root {
+	--color: #298cad;
+}
+
 body {
 	padding: 0;
 	margin: 0;
@@ -23,7 +28,7 @@ body {
 .form a {
 	text-decoration: none;
 	transition: .5s;
-	color: #298cad;
+	color: var(--color);
 }
 .form a:hover {
 	color: #36d2ff;
@@ -39,6 +44,12 @@ body {
 }
 .tab-form {
 	background-color: #fff;
+	display: none;
+	padding: 30px 20px 20px;
+}
+/*переключение формы для js и css*/
+.tab-form.active, #tab-1:checked ~ #form-1, #tab-2:checked ~ #form-2 {
+	display: block;
 }
 label.tab {
 	color: #fff;
@@ -49,7 +60,7 @@ label.tab {
 	margin-bottom: -1px;
 	cursor: pointer;
 }
-/*переключение для js и radio для css*/
+/*переключение табов для js и для css*/
 label.tab.active, input[name=tabs]:checked + label {
 	background-color: #fff;
 	color: #1d5f75;
@@ -57,9 +68,54 @@ label.tab.active, input[name=tabs]:checked + label {
 input[name=tabs] {
 	display: none;
 }
+/*формы*/
+.input {
+	font-size: 16px;
+	border: 2px solid #e9eaea;
+	padding: 12px 14px;	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 22px;
+	color: #1e8da6;
+	outline: none;
+}
 
+::-webkit-input-placeholder { color: #c4c9c9;} /* webkit */
+::-moz-placeholder { color: #298cad; } /* Firefox 19+ */
+:-moz-placeholder { color: #298cad; } /* Firefox 19- */
+:-ms-input-placeholder { color: #298cad; } /* IE */
 
+a.button {
+	background: var(--color);
+	color: #fff;
+	font-size: 18px;
+	text-transform: uppercase;
+	display: block;
+	text-align: center;
+	line-height: 46px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+.social {
+	display: flex;
+	justify-content: space-between;
+	font-size: 24px;
+}
+.social a {
+	width: 40px;
+	height: 40px;
+	display: block;
+	line-height: 40px;
+	text-align: center;
+}
+.social + a {
+	margin-top: 10px;
+	display: block;
+	font-size: 12px;
+	text-align: center;
 
+}
 
 .hide {
 	display: none;
