@@ -16,22 +16,32 @@
 	<div class="wrapper">
 		<div class="form">
 			
-			<!-- Табы для переключения между входом и регистрацией на css -->
+			<!-- Tabs to switch between login in and registration to css -->
 			<!-- <input type="radio" id="tab-1" name="tabs" checked>
 			<label class="tab" for="tab-1" title="Авторизация">Авторизация</label>
 
 			<input type="radio" id="tab-2" name="tabs">
 			<label class="tab" for="tab-2" title="Регистрация">Регистрация</label> -->
 
-			<!-- Табы для переключения между входом и регистрацией на js -->
+			<!-- Tabs to switch between login in and registration to js -->
 			<label class="tab active" title="Авторизация">Авторизация</label>
 			<label class="tab" title="Регистрация">Регистрация</label>
 			
-			<!-- форма для входа -->
+			<!-- login form -->
 			<form id="form-1" class="tab-form active">
-				<input class="input" type="email" placeholder="Введите E-mail">
-				<input class="input" type="password" placeholder="Введите пароль">
+
+				<div class="input-field">
+					<input class="input" type="text" required>
+					<label>Введите E-mail</label>
+				</div> <!-- input-field -->
+
+				<div class="input-field">
+					<input class="input" type="password" required>
+					<label>Введите пароль</label>
+				</div> <!-- input-field -->
+				
 				<a href="#" class="button">Войти</a>
+
 				<ul class="social">
 					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -39,23 +49,37 @@
 					<li><a href="#"><i class="fa fa-vk"></i></a></li>
 					<li><a href="#"><i class="fa fa-youtube"></i></a></li>
 				</ul>
+
 				<a href="#">Я забыл(а) свой пароль</a>
 			</form>
 
-			<!-- форма для регистрации, по умолчанию скрыта -->
+			<!-- registration form, hidden by default -->
 			<form id="form-2" class="tab-form">
-				<input class="input" type="email" placeholder="Введите E-mail адресс">
-				<input class="input" type="text" placeholder="Введите сове имя">
-				<input class="input" type="password" placeholder="Введите пароль">
+				<div class="input-field">
+					<input class="input" type="text" required>
+					<label>Введите E-mail адресс</label>
+				</div> <!-- input-field -->
+
+				<div class="input-field">
+					<input class="input" type="text" required>
+					<label>Введите своё имя</label>
+				</div> <!-- input-field -->
+
+				<div class="input-field">
+					<input class="input" type="password" required>
+					<label>Введите пароль</label>
+				</div> <!-- input-field -->
+
 				<a href="#" class="button">Регистрация</a>
+
 				<div class="recover">
-					<input type="checkbox">
-					<label>Ознакомлен(а) и принимаю <a href="#">условия регистрации</a></label>
-				</div>
+					<input type="checkbox" id="ckbox">
+					<label for="ckbox">Ознакомлен(а) и принимаю <a href="#">условия регистрации</a></label>
+				</div> <!-- recover -->
 			</form>
 			
-		</div>
-	</div>	
+		</div> <!-- form -->
+	</div> <!-- wrapper -->
 
 </body>
 </html>

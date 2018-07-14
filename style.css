@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
 
 :root {
-	--color: #298cad;
+	--color-main: #298cad;
+	--color-hover: #36d2ff;
+	--color-input: #a4b9b9;
 }
 
 body {
@@ -23,15 +25,15 @@ body {
 .form {
 	background-color: rgba(255, 255, 255, 0.2);
 	padding: 10px;
-	width: 330px;
+	/*width: 330px;*/
 }
 .form a {
 	text-decoration: none;
-	transition: .5s;
-	color: var(--color);
+	transition: .4s;
+	color: var(--color-main);
 }
 .form a:hover {
-	color: #36d2ff;
+	color: var(--color-hover);
 }
 .form ul {
 	list-style: none;
@@ -43,16 +45,16 @@ body {
 	width: 100%;
 }
 .tab-form {
-	background-color: #fff;
+	background-color: white;
 	display: none;
 	padding: 30px 20px 20px;
 }
-/*переключение формы для js и css*/
+/*switch forms to js and css*/
 .tab-form.active, #tab-1:checked ~ #form-1, #tab-2:checked ~ #form-2 {
 	display: block;
 }
 label.tab {
-	color: #fff;
+	color: white;
 	font-weight: 600;
 	padding: 15px;
 	display: inline-block;
@@ -60,43 +62,50 @@ label.tab {
 	margin-bottom: -1px;
 	cursor: pointer;
 }
-/*переключение табов для js и для css*/
+
+/*switch tabs to js and css*/
 label.tab.active, input[name=tabs]:checked + label {
-	background-color: #fff;
+	background-color: white;
 	color: #1d5f75;
 }
 input[name=tabs] {
 	display: none;
 }
-/*формы*/
+
+/*icons for tabs*/
+.tab:before {
+	content: '\f090';
+	font-family: 'FontAwesome', sans-serif;
+	font-size: 24px;
+	margin-right: 11px;
+	font-weight: normal;
+}
+.tab[title="Регистрация"]:before {
+	content: '\f234';
+
+}
+
+/*forms*/
 .input {
 	font-size: 16px;
-	border: 2px solid #e9eaea;
-	padding: 12px 14px;	
+	border: none;
+	border-bottom: 2px solid var(--color-input);
+	padding: 12px 0;	
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	margin-bottom: 22px;
 	color: #1e8da6;
 	outline: none;
+	transition: .4s ease;
 }
 
-::-webkit-input-placeholder { color: #c4c9c9;} /* webkit */
-::-moz-placeholder { color: #298cad; } /* Firefox 19+ */
-:-moz-placeholder { color: #298cad; } /* Firefox 19- */
-:-ms-input-placeholder { color: #298cad; } /* IE */
+/*style for placeholder*/
+/*::-webkit-input-placeholder { color: #c4c9c9;} /* webkit */
+/*::-moz-placeholder { color: #298cad; } /* Firefox 19+ */
+/*:-moz-placeholder { color: #298cad; } /* Firefox 19- */
+/*:-ms-input-placeholder { color: #298cad; } /* IE */
 
-a.button {
-	background: var(--color);
-	color: #fff;
-	font-size: 18px;
-	text-transform: uppercase;
-	display: block;
-	text-align: center;
-	line-height: 46px;
-	margin-top: 30px;
-	margin-bottom: 10px;
-}
 .social {
 	display: flex;
 	justify-content: space-between;
@@ -114,8 +123,126 @@ a.button {
 	display: block;
 	font-size: 12px;
 	text-align: center;
-
 }
+
+/* Floating Text */
+.input-field {
+	position: relative;
+}
+.input-field label {
+	position: absolute;
+  top: 0;
+  padding-top: 10px;
+  color: var(--color-input);
+  pointer-events: none;
+  transition: .4s ease;
+}
+.focus label {
+	transform: translateY(-22px);
+	font-size: 12px;
+	color: var(--color-hover);
+	left: 0;
+}
+.focus .input {
+	border-bottom: 2px solid var(--color-hover);
+}
+/*Floating Text to css*/
+/*.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+	transform: translateY(-30px);
+	font-size: 12px;
+	color: #33d3fe;
+	left: 0;
+}*/
+
+/*animation for button*/
+a.button {
+	position: relative;
+	background: var(--color-main);
+	color: white;
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+	display: block;
+	text-align: center;
+	line-height: 46px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	z-index: 1;
+	border-bottom: 4px solid var(--color-hover);
+}
+a.button:hover {
+	color: #1d5f75;
+}
+.button:before, .button:after {
+ 	content: '';
+ 	position: absolute;
+ 	display: block;
+ 	width: 100%;
+ 	height: 100%;
+ 	background-color: #27bfdc;
+ 	top: 0;
+ 	left: -100%;
+ 	transition: .3s;
+ 	z-index: -1;
+}
+.button:after {
+ 	top: 100%;
+ 	left: 0;
+ 	background-color: var(--color-hover);
+ 	transition-delay: .2s
+}
+.button:hover:before {
+	left: 0;
+}
+.button:hover:after {
+	top: 0;
+}
+/*custom checkbox*/
+.recover {
+	margin-top: 15px;
+	font-size: 12px;
+}
+.recover label {
+	display: block;
+	width: 250px;
+	padding-left: 35px;
+	position: relative;
+	cursor: pointer;
+}
+.recover label:before {
+	content: '';
+	position: absolute;
+	display: block;
+	border: 2px solid #c4c9c9;
+	width: 18px;
+	height: 18px;
+	top: 0;
+	left: 0;
+	border-radius: 3px;
+	-webkit-transition: .2s;
+	-o-transition: .2s;
+	transition: .2s;
+}
+#ckbox:checked + label:before {
+	border-top: 2px solid transparent;
+	border-left: 2px solid transparent;
+	border-right: 2px solid #408cc2;
+	border-bottom: 2px solid #408cc2;
+	transform: rotate(40deg);
+	width: 12px;
+	height: 22px;
+	transform-origin: 100% 100%;
+	top: -4px;
+	left: -5px;
+}
+#ckbox {
+	display: none;
+}
+
+
+
 
 .hide {
 	display: none;
